@@ -167,6 +167,38 @@ let gamePlay = function () {
     });
 };
 
+// Modal window for when the game is finished (created with https://sweetalert.js.org/)
+
+function end(moves, score) {
+    swal({
+        allowOutsideClick: true,
+        title: 'Yay! Sweet Victory!',
+        text: 'You won with ' + score + ' Stars and ' + moves + ' moves in ' + minute + ':'+ second + ' minutes. Congrats!',
+        button: 'Wanna play again?'
+    }).then(function (confirm) {
+        if (confirm) {
+            initGame();
+        }
+    })
+}
+
+// Modal window for when the game is to be restarted (created with https://sweetalert.js.org/)
+
+restart.on('click', function () {
+    swal({
+        allowOutsideClick: true,
+        title: 'Beware',
+        text: "The progress will be lost!",
+        buttons: ['Nah','Restart!'], 
+    }).then(function (confirm) {
+        if (confirm) {
+            initGame();
+        }
+    })
+});
+
+
+initGame();
 
 /*
  * set up the event listener for a card. If a card is clicked:
