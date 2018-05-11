@@ -92,6 +92,30 @@ function initGame() {
     initTime();
     
 };
+
+// Rating setting function
+function setRating(moves) {
+    var rating;
+
+    switch(true) {
+    	case  moves > 20 && moves < 25:
+    	ratingStars;
+    	rating = 3;
+    	break
+
+    	case moves > 26 && moves < 31:
+    	ratingStars.eq(1).removeClass('fa-star').addClass('fa-star-o');
+        rating = 2;
+        break
+
+        case moves > 32:
+        ratingStars.eq(0).removeClass('fa-star').addClass('fa-star-o');
+        rating = 1;
+    }
+    return {
+        score: rating 
+    };
+};
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
