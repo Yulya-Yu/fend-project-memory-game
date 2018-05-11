@@ -46,6 +46,30 @@ function shuffle(array) {
     return array;
 }
 
+//Timer function
+
+function initTime() {
+    currentTimer = setInterval(function () {
+            timer.text(`${minute} : ${second}`);
+            timer.innerHTML = minute + second;
+            second++;
+            if (second == 60) {
+                second = 0;
+                minute++;
+            } else if (minute == 60) {
+                minute = 0;
+                hour++;
+            }
+        }, 1000);
+
+}
+
+function resetTimer(timer) {
+    if (timer) {
+        clearInterval(timer);
+    }
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
