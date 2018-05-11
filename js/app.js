@@ -70,6 +70,28 @@ function resetTimer(timer) {
     }
 }
 
+// Initialize the game
+
+function initGame() {
+    let symbols = shuffle(cards);
+    deck.empty();
+    matched = 0;
+    moves = 0;
+    numberMove.text('0');
+    ratingStars.removeClass('fa-star-o').addClass('fa-star');
+    for (var i = 0; i < symbols.length; i++) {
+        deck.append($('<li class="card"><i class="fa fa-' + symbols[i] + '"></i></li>'))
+    }
+
+    gamePlay();
+
+    resetTimer(timer);
+    minute = 0;
+    second = 0;
+    timer.text(`${minute} : ${second}`);
+    initTime();
+    
+};
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
