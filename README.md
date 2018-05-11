@@ -1,6 +1,10 @@
 
 # Memory Game Project
 
+## Live Demo
+
+ https://yulya-yu.github.io/fend-project-memory-game/
+
 ## Table of Contents
 
 * [Instructions](#instructions)
