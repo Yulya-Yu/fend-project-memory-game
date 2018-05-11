@@ -116,6 +116,58 @@ function setRating(moves) {
         score: rating 
     };
 };
+
+//Gameplay function
+
+let gamePlay = function () {
+
+    // This part creates cads flip
+    deck.find('.card').on('click', function () {
+        let flip = $(this)
+        if (flip.hasClass('show')|| flip.hasClass('match')) { 
+        	return true; 
+        }
+
+        let card = flip.context.innerHTML;
+        flip.toggleClass('open show');
+        opened.push(card);
+
+        // This part compares opened cards
+        if (opened.length > 1) {
+            if (card === opened[0]) {
+                deck.find('.open').toggleClass('match animated tada');
+                setTimeout(function () {
+                    deck.find('.match').removeClass('open show animated tada');
+                }, delay);
+                matched++;
+            } else {
+                deck.find('.open').toggleClass('nomatch animated shake');
+                setTimeout(function () {
+                    deck.find('.open').removeClass('animated shake');
+                }, delay / 0.5);
+                setTimeout(function () {
+                    deck.find('.open').removeClass('open show nomatch animated shake');
+                }, delay);
+            }
+            opened = [];
+            moves++;
+            setRating(moves);
+            numberMove.html(moves);
+
+        }
+
+        // This part ends the game if all the cards are matched
+        if (cardsTotal === matched) {
+            setRating(moves);
+            var score = setRating(moves).score;
+            setTimeout(function () {
+                end(moves, score);
+            }, 1000);
+        }
+    });
+};
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
