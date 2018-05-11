@@ -10,11 +10,32 @@
  *   - add each card's HTML to the page
  */
 
+//Declare variables
+let cards = ['bicycle', 'bolt', 'bomb', 'diamond', 'leaf', 'cube', 'anchor', 'paper-plane-o'];
+//Multiply cards variable
+cards = cards.concat(cards);
+let opened = [];
+let matched = 0;
+let moves = 0;
+let cardsTotal = cards.length / 2;
+let deck = $('.deck');
+let scorePanel = $('.score-panel');
+let numberMove = $('.moves');
+let ratingStars = $('.fa-star');
+let restart = $('.restart');
+let delay = 400;
+let currentTimer;
+let minute = 0;
+let second = 0;
+let hour = 0;
+let timer = $('.timer');
+
 // Shuffle function from http://stackoverflow.com/a/2450976
+
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
-    while (currentIndex !== 0) {
+    while (0 !== currentIndex) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
         temporaryValue = array[currentIndex];
@@ -24,7 +45,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
