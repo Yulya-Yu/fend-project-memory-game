@@ -28,9 +28,16 @@ body {
     flex-direction: column;
 }
 
+.score-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 h1 {
-    font-family: 'Open Sans', sans-serif;
+
     font-weight: 300;
+    font-size: 2.5em;
 }
 
 /*
@@ -63,7 +70,12 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transform: rotateY(180deg);
+    transition: transform .3s ease-out;
+    font-family: FontAwesome;
+    text-align: center;
 }
+
 
 .deck .card.open {
     transform: rotateY(0);
@@ -76,8 +88,16 @@ h1 {
 }
 
 .deck .card.match {
+    transform: rotateY(0);
     cursor: default;
     background: #02ccba;
+    font-size: 33px;
+}
+
+.deck .card.nomatch {
+    transform: rotateY(0);
+    cursor: default;
+    background: #d32f2f;
     font-size: 33px;
 }
 
