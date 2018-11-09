@@ -10,7 +10,7 @@
 
 ## Instructions
 
-To play the game do the following:
+The game board consists of sixteen cards arranged in a grid. The deck is made up of eight different pairs of cards, each with different symbols on one side. The cards are arranged randomly with the symbol face down. The gameplay rules are very simple: 
 
 1) Click and match the cards
 2) Matching cards within a certain time limit will grant you a certain number of stars
